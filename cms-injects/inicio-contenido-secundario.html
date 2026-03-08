@@ -1,0 +1,207 @@
+<!-- Pegar este contenido en el campo "Contenido" de la página de Inicio (slug: inicio), debajo del carrusel. -->
+<!-- Opcional: en "Inyectar en <head>" de la página de Inicio agregar las fuentes para la misma estética:
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+-->
+
+<div class="home-secondary">
+  <style>
+    .home-secondary {
+      --hr-red: #E8001D;
+      --hr-red-dark: #b0001a;
+      --hr-red-dim: rgba(232,0,29,0.12);
+      --hr-dark: #111111;
+      --hr-dark2: #1a1a1a;
+      --hr-white: #ffffff;
+      --hr-gray: #888888;
+      font-family: 'Barlow', sans-serif;
+      color: var(--hr-white);
+      background: var(--hr-dark);
+      margin: 0 -1rem;
+      padding: 3rem 1rem 4rem;
+    }
+    .home-secondary * { box-sizing: border-box; }
+    .home-secondary .hr-section { max-width: 1100px; margin: 0 auto; }
+    .home-secondary .hr-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      color: var(--hr-white);
+    }
+    .home-secondary .hr-title .red { color: var(--hr-red); }
+    .home-secondary .hr-sub { font-size: 15px; color: var(--hr-gray); margin-bottom: 1.5rem; line-height: 1.5; }
+
+    /* Promos */
+    .home-secondary .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .home-secondary .promo-card {
+      background: var(--hr-dark2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .home-secondary .promo-card:hover {
+      border-color: rgba(232,0,29,0.35);
+      transform: translateY(-2px);
+    }
+    .home-secondary .promo-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--hr-red-dim);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--hr-red);
+    }
+    .home-secondary .promo-icon svg { width: 26px; height: 26px; }
+    .home-secondary .promo-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
+      color: var(--hr-white);
+    }
+    .home-secondary .promo-text .promo-value { color: var(--hr-red); font-weight: 800; }
+    .home-secondary .promo-text p { font-size: 14px; color: var(--hr-gray); line-height: 1.45; }
+
+    /* Cómo elegir */
+    .home-secondary .guide-block {
+      background: var(--hr-dark2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .home-secondary .guide-block { grid-template-columns: 1fr auto; gap: 2rem; }
+    }
+    .home-secondary .guide-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(26px, 3.5vw, 36px);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      color: var(--hr-white);
+    }
+    .home-secondary .guide-content h2 .red { color: var(--hr-red); }
+    .home-secondary .guide-content p {
+      font-size: 15px;
+      color: var(--hr-gray);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .home-secondary .guide-code {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      color: var(--hr-white);
+      margin-top: 0.5rem;
+    }
+    .home-secondary .guide-code .c1 { color: var(--hr-red); }
+    .home-secondary .guide-code .c2 { color: #C0C0C0; }
+    .home-secondary .guide-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .home-secondary .btn-guide {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .home-secondary .btn-guide-primary {
+      background: var(--hr-red);
+      color: white;
+    }
+    .home-secondary .btn-guide-primary:hover {
+      background: var(--hr-red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,0,29,0.35);
+    }
+    .home-secondary .btn-guide-secondary {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .home-secondary .btn-guide-secondary:hover {
+      border-color: var(--hr-red);
+      color: var(--hr-red);
+    }
+    .home-secondary .btn-guide svg { width: 18px; height: 18px; flex-shrink: 0; }
+  </style>
+
+  <section class="hr-section" aria-labelledby="promos-title">
+    <h2 id="promos-title" class="hr-title">Promociones y <span class="red">beneficios</span></h2>
+    <p class="hr-sub">Aprovechá las mejores condiciones para tu compra.</p>
+    <div class="promo-grid">
+      <div class="promo-card">
+        <div class="promo-icon">
+          <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M224 64H32a8 8 0 0 0-8 8v112a8 8 0 0 0 8 8h192a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8Zm-8 112H40V80h176Z"/><path d="M64 168a8 8 0 0 0 8-8v-32a8 8 0 0 0-16 0v32a8 8 0 0 0 8 8Zm32 0a8 8 0 0 0 8-8v-32a8 8 0 0 0-16 0v32a8 8 0 0 0 8 8Zm32 0a8 8 0 0 0 8-8v-32a8 8 0 0 0-16 0v32a8 8 0 0 0 8 8Zm32 0a8 8 0 0 0 8-8v-32a8 8 0 0 0-16 0v32a8 8 0 0 0 8 8Z"/></svg>
+        </div>
+        <div class="promo-text">
+          <h3><span class="promo-value">10%</span> de descuento</h3>
+          <p>Pagando por transferencia bancaria. Precio final en 1 pago.</p>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-icon">
+          <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M216 64h-40v-8a24 24 0 0 0-24-24h-48a24 24 0 0 0-24 24v8H40a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16Zm-88 96a32 32 0 1 1 32-32 32 32 0 0 1-32 32Zm64-96h-32v-8a8 8 0 0 1 16 0v8h16Z"/></svg>
+        </div>
+        <div class="promo-text">
+          <h3><span class="promo-value">3 cuotas</span> sin interés</h3>
+          <p>Con tarjetas seleccionadas. Consultá en checkout.</p>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-icon">
+          <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M248 128a8 8 0 0 0-8-8h-16v-32a16 16 0 0 0-16-16h-48V40a16 16 0 0 0-16-16H72a16 16 0 0 0-16 16v32H24a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h16v32a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-32h48a16 16 0 0 0 16-16v-32h16a8 8 0 0 0 8-8Zm-56 88h-48v-32h48Zm0-48H64v-32h128Zm-80 16H64V40h48Z"/></svg>
+        </div>
+        <div class="promo-text">
+          <h3><span class="promo-value">Envíos gratis</span></h3>
+          <p>En compras que superen el mínimo. Todo el país.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hr-section" aria-labelledby="guide-title">
+    <h2 id="guide-title" class="hr-title">Cómo elegir tu <span class="red">neumático</span></h2>
+    <p class="hr-sub">Encontrá la medida y el tipo correcto en pocos pasos.</p>
+    <div class="guide-block">
+      <div class="guide-content">
+        <h2>Leé el código del neumático</h2>
+        <p>Cada cubierta tiene un código grabado en el lateral, por ejemplo <strong>205/55 R16 91V</strong>. El primer número es el ancho en mm, el siguiente el perfil, luego el rodado y al final los índices de carga y velocidad. No hay que bajar esos valores respecto al original de tu auto.</p>
+        <p class="guide-code"><span class="c1">205</span>/<span class="c2">55</span> R16 91V</p>
+        <p>Podés ver la medida en el lateral del neumático, en la etiqueta del marco de la puerta o en el manual del vehículo.</p>
+        <div class="guide-ctas">
+          <a href="/tienda" class="btn-guide btn-guide-primary">
+            <svg fill="currentColor" viewBox="0 0 256 256"><path d="M229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32ZM40 112a72 72 0 1 1 72 72 72.08 72.08 0 0 1-72-72Z"/></svg>
+            Ir a la tienda
+          </a>
+          <a href="/como-elegir-neumatico" class="btn-guide btn-guide-secondary">
+            <svg fill="currentColor" viewBox="0 0 256 256"><path d="M240 126a14.12 14.12 0 0 0-6.23-11.8L136 57.47V40a16 16 0 0 0-32 0v17.47L22.23 114.2A14.11 14.11 0 0 0 16 126a14.12 14.12 0 0 0 6.23 11.8L104 194.53V216a16 16 0 0 0 32 0v-21.47l81.77-56.73A14.12 14.12 0 0 0 240 126Z"/></svg>
+            Guía completa
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

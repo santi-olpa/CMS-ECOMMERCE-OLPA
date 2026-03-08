@@ -1,0 +1,43 @@
+<!-- Pegar todo este archivo en el campo "Inyectar al final del <body>" del CMS -->
+<script>
+// ===========================
+// SCROLL REVEAL
+// ===========================
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ===========================
+// PROGRESS BAR ACTIVE STATE
+// ===========================
+const sections = document.querySelectorAll('section[id^="paso"]');
+const pbSteps  = document.querySelectorAll('.pb-step');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      pbSteps.forEach(s => {
+        s.classList.toggle('active', s.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { threshold: 0.35 });
+sections.forEach(s => sectionObserver.observe(s));
+
+// ===========================
+// USE CARDS — toggle selected
+// ===========================
+document.querySelectorAll('.use-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.use-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+  });
+});
+</script>
